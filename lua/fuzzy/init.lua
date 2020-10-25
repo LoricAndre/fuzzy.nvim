@@ -134,7 +134,7 @@ return {
         end,
       }
     else
-      terminal_fuzzy.fzf(cmd, function(line)
+      terminal_fuzzy.fzy(cmd, function(line)
         helpers.open_file(line)
       end)
     end
@@ -152,7 +152,7 @@ return {
         end,
       }
     else
-      terminal_fuzzy.fzf('git ls-files', function(line)
+      terminal_fuzzy.fzy('git ls-files', function(line)
         helpers.open_file(line)
       end)
     end
@@ -173,7 +173,7 @@ return {
         end,
       }
     else
-      terminal_fuzzy.fzf(cmd, function(line)
+      terminal_fuzzy.fzy(cmd, function(line)
         local filename = vim.split(line, ':')[1]
         local linum = vim.split(line, ':')[2]
         helpers.open_file_at(filename, linum)
@@ -196,7 +196,7 @@ return {
         end,
       }
     else
-      terminal_fuzzy.fzf(cmd .. '""', function(line)
+      terminal_fuzzy.fzy(cmd .. '""', function(line)
         local filename = vim.split(line, ':')[1]
         local linum = vim.split(line, ':')[2]
         helpers.open_file_at(filename, linum)
@@ -221,7 +221,7 @@ return {
         collection = _buffers,
       }
     else
-      terminal_fuzzy.fzf(_buffers, function(line)
+      terminal_fuzzy.fzy(_buffers, function(line)
         local buffer_name = vim.split(line, ':')[2]
         vim.cmd(string.format('buffer %s', buffer_name))
       end)
@@ -241,7 +241,7 @@ return {
         end,
       }
     else
-      terminal_fuzzy.fzf(cmd, 
+      terminal_fuzzy.fzy(cmd, 
       function(line)
         local number = vim.split(line, '  ')[3]
         helpers.open_file_at(filename, number)
@@ -269,7 +269,7 @@ return {
         end,
       }
     else
-      terminal_fuzzy.fzf(cmd, function(line)
+      terminal_fuzzy.fzy(cmd, function(line)
         vim.cmd(string.format('cd %s', line))
       end)
     end
@@ -285,7 +285,7 @@ return {
         collection = vim.fn.getcompletion('', 'color'),
       }
     else
-      terminal_fuzzy.fzf(vim.fn.getcompletion('', 'color'), function(color)
+      terminal_fuzzy.fzy(vim.fn.getcompletion('', 'color'), function(color)
         vim.cmd(string.format('colorscheme %s', color))
       end)
     end
@@ -318,7 +318,7 @@ return {
         end
       }
     else
-      terminal_fuzzy.fzf(lines, function(line)
+      terminal_fuzzy.fzy(lines, function(line)
         local segments = split(line, ":")
         helpers.open_file_at(segments[1], segments[2])
       end)
@@ -351,7 +351,7 @@ return {
         drawer = drawer.new(),
       }
     else
-      terminal_fuzzy.fzf(lines, function(line)
+      terminal_fuzzy.fzy(lines, function(line)
         local segments = split(line, ":")
         helpers.open_file_at(segments[1], segments[2])
       end)
@@ -388,7 +388,7 @@ return {
         drawer = drawer.new(),
       }
     else
-      terminal_fuzzy.fzf(lines, function(line)
+      terminal_fuzzy.fzy(lines, function(line)
         local segments = split(line, ":")
         helpers.open_file_at(segments[1], segments[2])
       end)
